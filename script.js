@@ -1,9 +1,4 @@
-//  В отдельной папке создать html и js
-//   Вывести текущий день и время на страницу в таком формате
-// Добрый день (утро, вечер, ночь в зависимости от времени суток)
-// Сегодня: Понедельник
-// Текущее время: 12:05:15 PM
-// До нового года осталось 175 дней
+"use strict";
 
 const timer = () => {
   const goodDays = document.querySelector("#goodDay");
@@ -62,12 +57,11 @@ const timer = () => {
   // вывод данных на страницу
   const updateClock = () => {
     let getTime = getTimeRemaining();
+
     goodDays.textContent = `${getTime.goodDay} , cегодня ${getTime.dayWeeks}`;
     time.textContent = ` Текущее время: ${getTime.timeNow} `;
-    newYearDay.textContent = ` До Нового Года осталось ${getTime.newYear} дней `;
+    newYearDay.textContent = ` До Нового Года осталось ${getTime.newYear} дня `;
   };
-
-  setTimeout(updateClock, 1000);
+  updateClock();
 };
-
-timer();
+setInterval(timer, 1000);
